@@ -85,6 +85,8 @@ Set these placeholders at the top of each script before running it:
 
 ## Inference
 
+We provide an example inference script for Qwen2.5-VL, which was at the time the best performing open-weight model. For all the other models tested in the paper, please refer to their individual documentation, and API usage details. 
+
 **run_qwen.py** runs Qwen2.5-VL (3B, 7B, 32B or 72B) on any of the three tasks. Model weights are downloaded from the HuggingFace Hub.
 
 ```bash
