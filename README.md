@@ -1,6 +1,6 @@
 # Not Another Text Benchmark
 
-This repository contains code for creating datasets and running inference on three video understanding tasks, from our NeurIPS (Evaluations and Datasets) 2026 paper, "Not Another Text Benchmark: Putting the “Visual" Back in Visual Question Answering for Large Video Models". 
+This repository contains code for creating datasets and running inference on three video understanding tasks, from our NeurIPS (Evaluations and Datasets) 2026 paper, ["Not Another Text Benchmark: Putting the “Visual" Back in Visual Question Answering for Large Video Models"](https://arxiv.org/abs/2609.17112). 
 
 - Please ensure that you have [Charades](https://prior.allenai.org/projects/charades) downloaded, and have access to the [Shapestacks](https://ogroth.github.io/shapestacks/) source [code](https://github.com/ogroth/shapestacks).
 - Please ensure that you have our dataset downloaded as well, which is available at: <https://www.kaggle.com/datasets/natbneurips2026/tfr-vfp-cmd>
