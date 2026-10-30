@@ -1,0 +1,11 @@
+# Dependencies for run_qwen.py
+torch>=2.1
+torchvision
+transformers>=4.49.0  # first release with Qwen2.5-VL
+accelerate            # needed for device_map="auto"
+numpy
+pillow
+opencv-python-headless
+
+# Optional, faster attention on GPU (used automatically when installed):
+# flash-attn
