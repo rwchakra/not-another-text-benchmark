@@ -1,0 +1,150 @@
+body {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.publication-title {
+  font-family: 'Google Sans', sans-serif;
+}
+
+.publication-title .title-emph {
+  font-style: italic;
+  color: #4a4a4a;
+}
+
+.publication-authors {
+  font-family: 'Google Sans', sans-serif;
+}
+
+.publication-authors a {
+  color: hsl(204, 86%, 53%) !important;
+}
+
+.publication-authors a:hover {
+  text-decoration: underline;
+}
+
+.author-block {
+  display: inline-block;
+  margin: 0 0.35em;
+}
+
+.affiliations .author-block {
+  margin: 0 0.6em;
+}
+
+.publication-venue {
+  font-family: 'Google Sans', sans-serif;
+  color: #4a4a4a;
+  margin-top: 0.75rem;
+}
+
+.publication-links {
+  margin-top: 1rem;
+}
+
+.link-block a {
+  margin: 0.3rem 0.15rem;
+}
+
+.section .title.is-3 {
+  font-family: 'Google Sans', sans-serif;
+}
+
+/* Figures */
+.paper-figure {
+  margin: 0 auto 1rem;
+}
+
+.paper-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.paper-figure figcaption {
+  margin-top: 0.9rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #4a4a4a;
+  text-align: justify;
+}
+
+.fig-label {
+  font-weight: 700;
+  color: #363636;
+}
+
+.correct {
+  color: #6c9a52;
+  font-weight: 600;
+}
+
+.incorrect {
+  color: #d33;
+  font-weight: 600;
+}
+
+.delta {
+  color: #e00;
+  font-weight: 700;
+}
+
+.task-grid .column {
+  display: flex;
+  flex-direction: column;
+}
+
+.task-grid .subtitle.is-5 {
+  font-family: 'Google Sans', sans-serif;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+/* Results table */
+.table-container {
+  overflow-x: auto;
+}
+
+.results-table {
+  margin: 0 auto;
+  font-variant-numeric: tabular-nums;
+}
+
+.results-table th,
+.results-table td {
+  text-align: center !important;
+  vertical-align: middle !important;
+  white-space: nowrap;
+}
+
+.results-table th:first-child,
+.results-table td:first-child {
+  text-align: left !important;
+}
+
+.results-table thead th {
+  border-bottom-width: 2px;
+}
+
+.results-table tr.reference td {
+  color: #8a8a8a;
+}
+
+.results-table tr.reference-last td {
+  border-bottom: 2px solid #dbdbdb;
+}
+
+.results-table td.best {
+  font-weight: 700;
+}
+
+/* BibTeX */
+#BibTeX pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.footer .content {
+  font-size: 0.9rem;
+}

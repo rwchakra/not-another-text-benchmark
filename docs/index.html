@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Not Another Text Benchmark: Putting the &quot;Visual&quot; Back in Visual Question Answering for Large Video Models">
+  <meta name="keywords" content="Video Understanding, Large Video Models, Visual Question Answering, Benchmark">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Not Another Text Benchmark</title>
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Not Another Text Benchmark: Putting the &quot;Visual&quot; Back in Visual Question Answering for Large Video Models">
+  <meta property="og:image" content="./static/images/fig1_teaser.png">
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">
+            <span class="title-emph">Not Another Text Benchmark:</span><br>
+            Putting the &ldquo;Visual&rdquo; Back in Visual Question Answering for Large Video Models
+          </h1>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Rwiddhi Chakraborty<sup>1</sup>,</span>
+            <span class="author-block">Yinong Oliver Wang<sup>2</sup>,</span>
+            <span class="author-block">Cheng Zhang<sup>3</sup>,</span>
+            <span class="author-block">Fan Bai<sup>4</sup>,</span>
+            <span class="author-block">Zhuoran Yu<sup>5</sup>,</span>
+            <span class="author-block">Michael Kampffmeyer<sup>6</sup>,</span>
+            <span class="author-block">Yong Jae Lee<sup>5</sup>,</span>
+            <span class="author-block">Fernando De la Torre<sup>2</sup>,</span>
+            <span class="author-block">Robert Jenssen<sup>6</sup></span>
+          </div>
+
+          <div class="is-size-6 publication-authors affiliations">
+            <span class="author-block"><sup>1</sup>University of Copenhagen</span>
+            <span class="author-block"><sup>2</sup>Carnegie Mellon University</span>
+            <span class="author-block"><sup>3</sup>Texas A&amp;M University</span>
+            <span class="author-block"><sup>4</sup>Johns Hopkins University</span>
+            <span class="author-block"><sup>5</sup>University of Wisconsin&ndash;Madison</span>
+            <span class="author-block"><sup>6</sup>UiT The Arctic University of Norway</span>
+          </div>
+
+          <div class="is-size-5 publication-venue">NeurIPS 2026 (Evaluations and Datasets Track)</div>
+
+          <div class="publication-links">
+            <span class="link-block">
+              <a href="https://arxiv.org/pdf/2609.17112" class="button is-normal is-rounded is-dark">
+                <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                <span>Paper</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <a href="https://arxiv.org/abs/2609.17112" class="button is-normal is-rounded is-dark">
+                <span class="icon"><i class="ai ai-arxiv"></i></span>
+                <span>arXiv</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <a href="https://github.com/rwchakra/not-another-text-benchmark" class="button is-normal is-rounded is-dark">
+                <span class="icon"><i class="fab fa-github"></i></span>
+                <span>Code</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <a href="https://www.kaggle.com/datasets/natbneurips2026/tfr-vfp-cmd" class="button is-normal is-rounded is-dark">
+                <span class="icon"><i class="fas fa-database"></i></span>
+                <span>Data</span>
+              </a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Figure 1: teaser -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <figure class="paper-figure">
+        <img src="./static/images/fig1_teaser.png"
+             alt="Left: standard text evaluation versus our visual evaluation of a video language model. Right: Gemini 2.5 Pro accuracy on temporal frame retrieval drops from 74% with text options to 30% with visual options, near the 25% random baseline.">
+        <figcaption>
+          <span class="fig-label">Figure 1.</span>
+          A simple illustration of the usefulness of our visual evaluation suite. Traditional evaluation suites in video
+          understanding tasks use text as the evaluation modality (left). We introduce a dataset that evaluates visual
+          understanding in large video models through the visual modality (right). On the temporal frame retrieval task in
+          our dataset, Gemini 2.5 Pro, a frontier video model, performs significantly worse when the answer choices are
+          visual than when they are text (the <span class="delta">&Delta;</span> sign signifies the drop in accuracy, over
+          40 percentage points). This demonstrates a gap in the visual reasoning capabilities of large video models.
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="abstract">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Large video models have exhibited impressive performance on a wide range of visual question answering tasks,
+            owing to the rise of powerful, pretrained text and vision encoders. The usefulness of such models have also been
+            demonstrated on a wide range of benchmarks, with an important caveat &ndash; the dominant approach in these
+            benchmarks evaluates multiple choice reasoning via <em>text</em> options. This is a natural way to test
+            text-based reasoning in these models, and has led to significant insights regarding model behavior in the
+            community.
+          </p>
+          <p>
+            In this work, we ask a different question &ndash; what happens when the evaluation modality is
+            <em>visual</em>, rather than text? We introduce three new vision-centric evaluation benchmarks in
+            <em>temporal frame retrieval</em>, <em>video future prediction</em>, and <em>causal memory distortion</em>,
+            all designed around evaluating visual understanding capabilities in large video models. Our approach
+            complements the existing approaches to evaluate video understanding in frontier models. We show that current
+            frontier models exhibit significant weakness when attempting to reason through visual queries, rather than
+            text. We conclude with an extended analysis section that provides pointers for future improvements in visual
+            understanding for large video models.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="tasks">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Three Visual Tasks</h2>
+
+    <!-- Figures 2 and 3 -->
+    <div class="columns task-grid">
+      <div class="column">
+        <h3 class="subtitle is-5 has-text-centered">Temporal Frame Retrieval</h3>
+        <figure class="paper-figure">
+          <img src="./static/images/fig2_temporal_retrieval.jpg" loading="lazy"
+               alt="Temporal frame retrieval example: a video and an anchor action, with four candidate frame sequences as answer options.">
+          <figcaption>
+            <span class="fig-label">Figure 2.</span>
+            Temporal Frame Retrieval. Given a video and an action (e.g. &ldquo;someone goes from standing to
+            sitting&rdquo;), the model must select the correct sequence of frames that occur <em>after</em> or
+            <em>before</em> the anchor action from four visual options. <span class="correct">Green</span> is correct,
+            <span class="incorrect">red</span> incorrect.
+          </figcaption>
+        </figure>
+      </div>
+      <div class="column">
+        <h3 class="subtitle is-5 has-text-centered">Video Future Prediction</h3>
+        <figure class="paper-figure">
+          <img src="./static/images/fig3_future_prediction.jpg" loading="lazy"
+               alt="Video future prediction example: initial context frames, with four candidate sequences of future frames as answer options.">
+          <figcaption>
+            <span class="fig-label">Figure 3.</span>
+            Video Future Prediction. Given a video input showing the initial context frames, the model must select the
+            correct sequence of future frames from four visual options. <span class="correct">Green</span> is correct,
+            <span class="incorrect">red</span> incorrect.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- Figure 4 -->
+    <div class="columns is-centered task-grid">
+      <div class="column is-four-fifths">
+        <h3 class="subtitle is-5 has-text-centered">Causal Memory Distortion</h3>
+        <figure class="paper-figure">
+          <img src="./static/images/fig4_causal_distortion.jpg" loading="lazy"
+               alt="Causal memory distortion: six input variants (complete or incomplete video, with causal implication, without, or scrambled) and an example question asking whether a frame appeared in the video.">
+          <figcaption>
+            <span class="fig-label">Figure 4.</span>
+            An illustration of the Causal Memory Distortion task. The contact frame (the moment the shoe leaves the foot)
+            is highlighted in <span class="correct">green</span>. We denote w/CI&mdash;with causal implication, and
+            w/o CI&mdash;without causal implication. The contact frame is present in the complete versions across the
+            three conditions, but is absent in the incomplete versions.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Table 1 -->
+<section class="section" id="results">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Results</h2>
+    <div class="content has-text-justified">
+      <p>
+        <span class="fig-label">Table 1.</span>
+        Accuracy (%) across the three tasks. Best result per column in <strong>bold</strong>. The causal memory
+        distortion task is binary (&ldquo;yes&rdquo;/&ldquo;no&rdquo;), hence the 50% random baseline. The other two
+        tasks have four choices each, hence the 25% random baseline.
+      </p>
+    </div>
+    <div class="table-container">
+      <table class="table is-hoverable results-table">
+        <thead>
+          <tr>
+            <th>Model</th>
+            <th>Temporal Frame<br>Retrieval</th>
+            <th>Future<br>Prediction</th>
+            <th>Causal Memory<br>Distortion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="reference"><td>Random Baseline</td><td>25.00</td><td>25.00</td><td>50.00</td></tr>
+          <tr class="reference reference-last"><td>Human</td><td>44.00</td><td>80.00</td><td>80.00</td></tr>
+          <tr><td>LLaVA-OV-72B</td><td>23.62</td><td>25.75</td><td>52.00</td></tr>
+          <tr><td>Qwen2.5-32B</td><td>24.71</td><td>33.44</td><td>55.00</td></tr>
+          <tr><td>Qwen2.5-72B</td><td>25.83</td><td>31.70</td><td class="best">60.00</td></tr>
+          <tr><td>mPLUG-Owl3</td><td>17.69</td><td>17.40</td><td>51.70</td></tr>
+          <tr><td>Qwen3-32B</td><td>21.57</td><td>41.80</td><td>50.00</td></tr>
+          <tr><td>InternVL3-72B</td><td>21.48</td><td>25.80</td><td>50.00</td></tr>
+          <tr><td>GLM-4.6V</td><td>29.78</td><td>32.44</td><td>51.70</td></tr>
+          <tr><td>Gemini-2.5-Pro</td><td>30.00</td><td class="best">69.62</td><td>58.00</td></tr>
+          <tr><td>Kimi-K2.6</td><td class="best">33.45</td><td>28.43</td><td>58.33</td></tr>
+          <tr><td>GLM-5V-Turbo</td><td>23.87</td><td>24.08</td><td>55.00</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-3">BibTeX</h2>
+    <pre><code>@misc{chakraborty2026textbenchmarkputtingvisual,
+  title={Not Another Text Benchmark: Putting the "Visual" Back in Visual Question Answering for Large Video Models},
+  author={Rwiddhi Chakraborty and Yinong Oliver Wang and Cheng Zhang and Fan Bai and Zhuoran Yu and Michael Kampffmeyer and Yong Jae Lee and Fernando De la Torre and Robert Jenssen},
+  year={2026},
+  eprint={2609.17112},
+  archivePrefix={arXiv},
+  primaryClass={cs.CV},
+  url={https://arxiv.org/abs/2609.17112},
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content has-text-centered">
+          <p>
+            Website template adapted from <a href="https://nerfies.github.io/">Nerfies</a>, licensed under a
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons
+            Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
