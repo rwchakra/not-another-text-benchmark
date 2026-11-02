@@ -1,5 +1,11 @@
 # Not Another Text Benchmark
 
+**Rwiddhi Chakraborty**<sup>1</sup>, **Yinong Oliver Wang**<sup>2</sup>, **Cheng Zhang**<sup>3</sup>, **Fan Bai**<sup>4</sup>, **Zhuoran Yu**<sup>5</sup>, **Michael Kampffmeyer**<sup>6</sup>, **Yong Jae Lee**<sup>5</sup>, **Fernando De la Torre**<sup>2</sup>, **Robert Jenssen**<sup>6</sup>
+
+<sup>1</sup>University of Copenhagen &nbsp; <sup>2</sup>Carnegie Mellon University &nbsp; <sup>3</sup>Texas A&M University &nbsp; <sup>4</sup>Johns Hopkins University &nbsp; <sup>5</sup>University of Wisconsin–Madison &nbsp; <sup>6</sup>UiT The Arctic University of Norway
+
+[**arXiv**](https://arxiv.org/abs/2609.17112) | [**Project Page**](https://rwchakra.github.io/not-another-text-benchmark/)
+
 This repository contains code for creating datasets and running inference on three video understanding tasks, from our NeurIPS (Evaluations and Datasets) 2026 [paper](https://arxiv.org/abs/2609.17112), "Not Another Text Benchmark: Putting the “Visual" Back in Visual Question Answering for Large Video Models". 
 
 - Please ensure that you have [Charades](https://prior.allenai.org/projects/charades) downloaded, and have access to the [Shapestacks](https://ogroth.github.io/shapestacks/) source [code](https://github.com/ogroth/shapestacks).
