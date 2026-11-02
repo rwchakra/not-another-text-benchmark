@@ -1,10 +1,15 @@
-# Not Another Text Benchmark
+<div align="center">
 
-**Rwiddhi Chakraborty**<sup>1</sup>, **Yinong Oliver Wang**<sup>2</sup>, **Cheng Zhang**<sup>3</sup>, **Fan Bai**<sup>4</sup>, **Zhuoran Yu**<sup>5</sup>, **Michael Kampffmeyer**<sup>6</sup>, **Yong Jae Lee**<sup>5</sup>, **Fernando De la Torre**<sup>2</sup>, **Robert Jenssen**<sup>6</sup>
+# Not Another Text Benchmark: Putting the "Visual" Back in Visual Question Answering for Large Video Models
 
-<sup>1</sup>University of Copenhagen &nbsp; <sup>2</sup>Carnegie Mellon University &nbsp; <sup>3</sup>Texas A&M University &nbsp; <sup>4</sup>Johns Hopkins University &nbsp; <sup>5</sup>University of Wisconsin–Madison &nbsp; <sup>6</sup>UiT The Arctic University of Norway
+Rwiddhi Chakraborty<sup>1</sup> &emsp; Yinong Oliver Wang<sup>2</sup> &emsp; Cheng Zhang<sup>3</sup> &emsp; Fan Bai<sup>4</sup> &emsp; Zhuoran Yu<sup>5</sup> &emsp; Michael Kampffmeyer<sup>6</sup> &emsp; Yong Jae Lee<sup>5</sup> &emsp; Fernando De la Torre<sup>2</sup> &emsp; Robert Jenssen<sup>6</sup>
 
-[**arXiv**](https://arxiv.org/abs/2609.17112) | [**Project Page**](https://rwchakra.github.io/not-another-text-benchmark/)
+<sup>1</sup>University of Copenhagen &emsp; <sup>2</sup>Carnegie Mellon University &emsp; <sup>3</sup>Texas A&M University &emsp; <sup>4</sup>Johns Hopkins University &emsp; <sup>5</sup>University of Wisconsin–Madison &emsp; <sup>6</sup>UiT The Arctic University of Norway
+
+[![arXiv](https://img.shields.io/badge/arXiv-2609.17112-b31b1b?logo=arxiv&logoColor=white)](https://arxiv.org/abs/2609.17112)
+[![Website](https://img.shields.io/badge/Project-Website-00947e?logo=googlechrome&logoColor=white)](https://rwchakra.github.io/not-another-text-benchmark/)
+
+</div>
 
 This repository contains code for creating datasets and running inference on three video understanding tasks, from our NeurIPS (Evaluations and Datasets) 2026 [paper](https://arxiv.org/abs/2609.17112), "Not Another Text Benchmark: Putting the “Visual" Back in Visual Question Answering for Large Video Models". 
 
