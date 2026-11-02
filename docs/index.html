@@ -139,10 +139,28 @@
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Three Visual Tasks</h2>
 
-    <!-- Figures 2 and 3 -->
-    <div class="columns task-grid">
-      <div class="column">
+    <!-- Figures 2 and 3: a grid keeps both figures level on desktop and pairs each text with its figure on mobile -->
+    <div class="task-pair">
+      <div class="task-text" style="grid-area: t1;">
         <h3 class="subtitle is-5 has-text-centered">Temporal Frame Retrieval</h3>
+        <p class="task-desc">
+          This task evaluates a model&rsquo;s ability to understand temporal context in video. Given a video clip and an
+          anchor action as input, the model is required to select the correct frames that occur either before or after
+          the anchor action from a set of candidate frames. The task is purely visual: the model is required to select
+          among visual options, not text.
+        </p>
+      </div>
+      <div class="task-text" style="grid-area: t2;">
+        <h3 class="subtitle is-5 has-text-centered">Video Future Prediction</h3>
+        <p class="task-desc">
+          This task evaluates a model&rsquo;s ability to predict future events in a video from past context. Given a video
+          clip in which only an initial frame segment is visible (i.e. only a truncated video as input), the model must
+          select the correct future frames from a set of candidate segments. This is different from the retrieval task,
+          since the model does not have access to the entire video clip to make the decision. Instead, it has to reason
+          based on the truncated context it receives as input.
+        </p>
+      </div>
+      <div style="grid-area: f1;">
         <figure class="paper-figure">
           <img src="./static/images/fig2_temporal_retrieval.jpg" loading="lazy"
                alt="Temporal frame retrieval example: a video and an anchor action, with four candidate frame sequences as answer options.">
@@ -155,8 +173,7 @@
           </figcaption>
         </figure>
       </div>
-      <div class="column">
-        <h3 class="subtitle is-5 has-text-centered">Video Future Prediction</h3>
+      <div style="grid-area: f2;">
         <figure class="paper-figure">
           <img src="./static/images/fig3_future_prediction.jpg" loading="lazy"
                alt="Video future prediction example: initial context frames, with four candidate sequences of future frames as answer options.">
@@ -174,6 +191,24 @@
     <div class="columns is-centered task-grid">
       <div class="column is-four-fifths">
         <h3 class="subtitle is-5 has-text-centered">Causal Memory Distortion</h3>
+        <p class="task-desc">
+          This task is inspired by an influential cognitive science experiment by Strickland and Keil
+          (<a href="https://doi.org/10.1016/j.cognition.2011.04.007">2011</a>), which studies how humans form false
+          memories about causal events in videos. In their setup, a video sequence contains a clear contact moment
+          (e.g., kicking something or throwing something). The video is then slightly altered to remove the contact
+          moment, but subjects are shown a candidate &ldquo;contact moment&rdquo; frame from the original video. The study
+          found that humans often falsely report having seen the contact moment in the altered video, effectively
+          &ldquo;hallucinating&rdquo;, when the remaining footage causally implies the missing contact. Interestingly, this
+          hallucination tendency in humans is less likely if the remaining footage does not causally follow the contact
+          moment (e.g., footage of a ship sailing following the footage of a person about to kick a ball).
+        </p>
+        <p class="task-desc">
+          To the best of our knowledge, we are the first to adapt this idea to curate a dataset that evaluates models&rsquo;
+          ability to detect causal inconsistencies in video sequences, i.e. evaluating whether models can indeed stay
+          robust when contact frames are removed with causal implication, as opposed to when they are not. We use the term
+          &ldquo;causal memory distortion&rdquo; as the phenomenon when models exhibit similar hallucination about the
+          removed &ldquo;contact&rdquo; frame.
+        </p>
         <figure class="paper-figure">
           <img src="./static/images/fig4_causal_distortion.jpg" loading="lazy"
                alt="Causal memory distortion: six input variants (complete or incomplete video, with causal implication, without, or scrambled) and an example question asking whether a frame appeared in the video.">
@@ -227,6 +262,30 @@
           <tr><td>GLM-5V-Turbo</td><td>23.87</td><td>24.08</td><td>55.00</td></tr>
         </tbody>
       </table>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="discussion">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Discussion and Future Work</h2>
+        <div class="content has-text-justified">
+          <p>
+            We find that large frontier video models perform quite poorly under direct visual evaluation. In most cases,
+            performance is close to or only slightly above chance, the exception being Gemini-2.5-Pro on Video Future
+            Prediction (Shapestacks). This indicates that visual querying diagnoses model failures that traditional
+            text-based benchmarks may not. However, text-based evaluation remains a key component of VQA, so we view our
+            work as complementary to it rather than as a replacement.
+          </p>
+          <p>
+            The main limitation of our dataset is its size, and we plan to increase the number of samples considerably in
+            the future. We also plan to add a representation-level analysis to this work, since the models&rsquo; internal
+            behavior on these tasks is currently treated as a black box.
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
