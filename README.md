@@ -26,7 +26,38 @@ Large video models have exhibited impressive performance on a wide range of visu
 pip install -r requirements.txt
 ```
 
+## Getting the Benchmark Data
+
+The [Kaggle dataset](https://www.kaggle.com/datasets/natbneurips2026/tfr-vfp-cmd) does not include any Charades videos or frames, since the Charades license does not permit redistribution. It contains the annotations, the ShapeStacks frames, and everything needed to rebuild the Charades-derived inputs exactly as used in the paper:
+
+1. Download the **original-resolution** Charades videos (not the 480p version) from [AI2](https://prior.allenai.org/projects/charades), and put the ids listed in `charades_tfr_video_ids.txt` and `charades_causal_video_ids.txt` into `Charades_v1/` inside the dataset folder.
+2. Rebuild the temporal frame retrieval option frames from the frame indices stored in the JSON:
+
+   ```bash
+   python rebuild_charades_option_frames.py \
+       --json-path <dataset>/charades_mcq_before_after.json \
+       --video-dir <dataset>/Charades_v1 \
+       --output-dir <dataset>/Charades_v1/frames
+   ```
+
+3. Rebuild the causal videos and contact frames from the cut points:
+
+   ```bash
+   python rebuild_causal_benchmark.py \
+       --benchmark-json <dataset>/causal_benchmark/benchmark/annotations/benchmark.json \
+       --positions-json <dataset>/causal_benchmark/benchmark/causal_frame_positions.json \
+       --source-dir <dataset>/Charades_v1 \
+       --output-dir <dataset>/causal
+   cp <dataset>/causal_ground_truth.json <dataset>/causal/
+   ```
+
+Both scripts are also included in the dataset under `scripts/`. They need only `opencv-python-headless` and `numpy`.
+
+`recover_charades_frame_indices.py` and `recover_causal_frame_positions.py` are the scripts we used once, on the original release, to record these frame indices and positions. You don't need them to use the benchmark.
+
 ## Dataset Creation
+
+The scripts below create the benchmark from scratch, e.g. to build new items. To reproduce the released benchmark, use the rebuild scripts above.
 
 ### Temporal Frame Retrieval (Charades)
 
@@ -38,7 +69,7 @@ pip install -r requirements.txt
 python charades_temporal_mcq.py
 ```
 
-Name the output `charades_mcq_before_after.json`. The frames for each option (`Charades_v1/frames/<video_id>/<mcq_id>/{A,B,C,D}/*.jpg`) are included in our dataset link, so they will automatically be loaded.
+Name the output `charades_mcq_before_after.json`. Then build the frames for each option (`Charades_v1/frames/<video_id>/<mcq_id>/{A,B,C,D}/*.jpg`) with **make_charades_option_frames.py**. For the released MCQs, use `rebuild_charades_option_frames.py` instead (see above), which reproduces the released frames exactly.
 
 ### Video Future Prediction (ShapeStacks)
 
@@ -65,7 +96,7 @@ We also provide `sampled_dirs.txt`, a list of directories we sampled from ShapeS
 
 - **causal_benchmark_builder.py** - Annotation tool for creating the causal memory distortion benchmark following the experimental design from Strickland & Keil (2011).
 
-**Usage:** Download `causal_ground_truth.json`, `videos/` and `frames/` from the dataset link into one folder and pass it to `run_qwen.py` as `--dataset_path`. `causal_benchmark_builder.py` is only needed if you want to annotate new videos.
+**Usage:** Rebuild `videos/` and `frames/` with `rebuild_causal_benchmark.py` (see [Getting the Benchmark Data](#getting-the-benchmark-data)), copy `causal_ground_truth.json` into the same folder, and pass that folder to `run_qwen.py` as `--dataset_path`. `causal_benchmark_builder.py` is only needed if you want to annotate new videos.
 
 **Annotating new videos:**
 
